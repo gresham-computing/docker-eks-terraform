@@ -1,0 +1,19 @@
+= Docker EKS Terraform
+
+A Docker image for terraforming https://aws.amazon.com/eks[Amazon EKS].
+
+== Features
+
+Designed for use in Continious Intergration systems, this image bundles the following tools:
+
+- `kubectl`
+- `heptio-authenticator-aws`, to allow authentication with AWS
+- https://terraform.io[Hashicorp Terraform]
+- A pre-downloaded https://www.terraform.io/docs/providers/aws/index.html[Terraform AWS Provider]
+- https://github.com/mcuadros/terraform-provider-helm[Terraform Helm Provider], for  terraforming with https://helm.sh[Helm]
+
+== Usage
+
+- In order to use Terraform with AWS at all, credentials must be provided for the AWS Provider.
+- In order to authenticate against an EKS cluster, Heptio authenticator must also be provided with credentials.
+- In order to connect to an EKS cluster, `kubectl` must be configured to connect to the cluster.
