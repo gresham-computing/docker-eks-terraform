@@ -48,6 +48,12 @@ RUN cd /tmp && cat /tmp/terraform-provider-aws_${terraformAWSProviderVersion}_SH
 # Install
 RUN unzip /tmp/terraform-provider-aws_${terraformAWSProviderVersion}_linux_amd64.zip -d /tmp/tf-plugins
 
+# Terraform Helm Provider
+ARG terraformHelmProviderVersion=0.5.1
+
+ADD https://github.com/mcuadros/terraform-provider-helm/releases/download/v${terraformHelmProviderVersion}/terraform-provider-helm_v${terraformHelmProviderVersion}_linux_amd64.tar.gz /tmp/
+RUN tar -xzf /tmp/terraform-provider-helm_v${terraformHelmProviderVersion}_linux_amd64.tar.gz --directory /tmp/tf-plugins
+
 # Take a fresh image
 FROM alpine:3.7
 MAINTAINER James Laverack <jlaverack@greshamtech.com>
