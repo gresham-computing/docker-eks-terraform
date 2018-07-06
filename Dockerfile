@@ -59,7 +59,8 @@ RUN cp /tmp/terraform-provider-helm_linux_amd64/terraform-provider-helm /tmp/tf-
 FROM alpine:3.7
 MAINTAINER James Laverack <jlaverack@greshamtech.com>
 
-RUN apk update && apk add ca-certificates
+# The Terraform Helm plugin is dynamically linked against glibc, so we need it. See https://github.com/mcuadros/terraform-provider-helm/issues/59
+RUN apk update && apk add ca-certificates libc6-compat
 
 # Copy over verified artefacts
 COPY --from=downloader /tmp/bin/* /usr/local/bin/
