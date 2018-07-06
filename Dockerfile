@@ -62,4 +62,4 @@ RUN apk update && apk add ca-certificates
 
 # Copy over verified artefacts
 COPY --from=downloader /tmp/bin/* /usr/local/bin/
-COPY --from=downloader /tmp/tf-plugins/* /root/.terraform/plugins/
+COPY --from=downloader /tmp/tf-plugins/* /root/.terraform.d/plugins/
