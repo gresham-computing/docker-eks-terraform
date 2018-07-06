@@ -58,6 +58,8 @@ RUN tar -xzf /tmp/terraform-provider-helm_v${terraformHelmProviderVersion}_linux
 FROM alpine:3.7
 MAINTAINER James Laverack <jlaverack@greshamtech.com>
 
+RUN apk update && apk add ca-certificates
+
 # Copy over verified artefacts
 COPY --from=downloader /tmp/bin/* /usr/local/bin/
 COPY --from=downloader /tmp/tf-plugins/* /root/.terraform/plugins/
