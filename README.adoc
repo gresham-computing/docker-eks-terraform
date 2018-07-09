@@ -7,6 +7,7 @@ A Docker image for terraforming https://aws.amazon.com/eks[Amazon EKS].
 Designed for use in Continious Intergration, this image bundles the following tools:
 
 - `kubectl`
+- https://helm.sh[Helm]
 - `heptio-authenticator-aws`, to allow authentication with AWS
 - https://terraform.io[Hashicorp Terraform]
 - A pre-downloaded https://www.terraform.io/docs/providers/aws/index.html[Terraform AWS Provider]

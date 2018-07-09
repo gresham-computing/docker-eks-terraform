@@ -48,6 +48,13 @@ RUN cd /tmp && cat /tmp/terraform-provider-aws_${terraformAWSProviderVersion}_SH
 # Install
 RUN unzip /tmp/terraform-provider-aws_${terraformAWSProviderVersion}_linux_amd64.zip -d /tmp/tf-plugins
 
+# Helm
+ARG helmVersion=2.9.1
+ADD https://storage.googleapis.com/kubernetes-helm/helm-v${helmVersion}-linux-amd64.tar.gz /tmp/
+RUN mkdir -p /tmp/helm
+RUN tar -xzf /tmp/helm-v${helmVersion}-linux-amd64.tar.gz --directory /tmp/helm
+RUN mv /tmp/helm/linux-amd64/helm /tmp/bin/
+
 # Terraform Helm Provider
 ARG terraformHelmProviderVersion=0.5.1
 
