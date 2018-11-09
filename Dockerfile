@@ -67,7 +67,7 @@ FROM alpine:3.7
 MAINTAINER James Laverack <jlaverack@greshamtech.com>
 
 # The Terraform Helm plugin is dynamically linked against glibc, so we need it. See https://github.com/mcuadros/terraform-provider-helm/issues/59
-RUN apk update && apk add ca-certificates libc6-compat
+RUN apk update && apk add ca-certificates libc6-compat bash
 
 # Copy over verified artefacts
 COPY --from=downloader /tmp/bin/* /usr/local/bin/
